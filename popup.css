@@ -1,0 +1,90 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    width: 400px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+#nav {
+    background-color: #95A5A6;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 44px;
+}
+
+#nav-padding {
+    height: 44px;
+}
+
+#list {
+    overflow-y: scroll;
+    max-height: 500px;
+    min-height: 116px;
+    padding-top: 5px;
+}
+
+#list span {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 3px;
+}
+
+th {
+    background-color: #d9ddde;
+}
+
+p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+tr:nth-of-type(odd) {
+    background-color: #EEEEEE;
+}
+
+.date {
+    white-space: nowrap;
+}
+
+span.tag {
+    padding: 2px !important;
+}
+
+tr.discarded td.title span#discarded-tag::after {
+    content: "(discarded)";
+    font-weight: bold;
+}
+
+tr.muted td.title span#muted-tag::after {
+    content: "(muted)";
+    font-weight: bold;
+}
+
+.selected {
+    background-color: lightsteelblue !important;
+}

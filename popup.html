@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab List</title>
+    <script src="jquery-3.5.0.min.js"></script>
+    <script src="list.js"></script>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="nav">
+        <button id="focus-tab">Focus Tab</button>
+        <button id="mute-tab">Mute Tab</button>
+        <button id="discard-tab">Discard Tab</button>
+        <button id="load-all">Load All</button>
+        <button id="close-tab">Close Tab</button>
+        <button id="find">Find</button>
+        <input id="search" type="text">
+    </div>
+    <div id="nav-padding"></div>
+    <div id="list">
+        <div id="view-all">
+            <div id="see-all">
+                <span>All Windows</span>
+            </div>
+            <table id="all">
+                <tr>
+                    <th>windowId</th>
+                    <th>Title</th>
+                    <th class="date">Last Accessed</th>
+                </tr>
+            </table>
+            <hr>
+            <div id="see-window">
+                <span>Current Window</span>
+            </div>
+            <table id="window">
+                <tr>
+                    <th>Title</th>
+                    <th class="date">Last Accessed</th>
+                </tr>
+            </table>
+            <hr>
+            <div id="see-other">
+                <span>Other Window</span>
+            </div>
+            <table id="other">
+                <tr>
+                    <th>windowId</th>
+                    <th>Title</th>
+                    <th class="date">Last Accessed</th>
+                </tr>
+            </table>
+            <hr>
+            <div id="see-audible">
+                <span>Audible Tabs</span>
+            </div>
+            <table id="audible">
+                <tr>
+                    <th>windowId</th>
+                    <th>Title</th>
+                    <th class="date">Last Accessed</th>
+                </tr>
+            </table>
+        </div>
+        <div id="view-search"></div>
+    </div>
+</body>
+</html>
