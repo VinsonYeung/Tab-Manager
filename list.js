@@ -172,19 +172,19 @@ $(document).ready(function() {
 
     function displayTabs() {
         for (var i = 0; i < tabList.length; i++) {
-            $('#all').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
+            $('#all').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'><img src='" + tabList[i].favicon + "' width='14' height='14'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
         }
     
         chrome.tabs.query({active: true, currentWindow: true}, function(tab) {
             for (var i = 0; i < tabList.length; i++) {
                 if (tab[0].windowId == tabList[i].windowId) {
-                    $('#window').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td class='title'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
+                    $('#window').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td class='title'><img src='" + tabList[i].favicon + "' width='14' height='14'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
                 }
             }
     
             for (var i = 0; i < tabList.length; i++) {
                 if (tab[0].windowId != tabList[i].windowId) {
-                    $('#other').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
+                    $('#other').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'><img src='" + tabList[i].favicon + "' width='14' height='14'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
                 }
             }
         });
@@ -193,7 +193,7 @@ $(document).ready(function() {
             for (var i = 0; i < tabList.length; i++) {
                 for (var j = 0; j < tabs.length; j++) {
                     if (tabList[i].id == tabs[j].id) {
-                        $('#audible').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
+                        $('#audible').append("<tr class='tab' data-tab-id='" + tabList[i].id + "'><td>" + tabList[i].windowId + "</td><td class='title'><img src='" + tabList[i].favicon + "' width='14' height='14'>" + tabList[i].title + "<span id='discarded-tag' class='tag'></span><span id='muted-tag' class='tag'></span></td><td>" + timeDifference(tabList[i].date) + "</td></tr>");
                         break;
                     }
                 }

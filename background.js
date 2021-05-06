@@ -13,7 +13,7 @@ function getTabs() {
     chrome.windows.getCurrent({}, function(window) {
         chrome.tabs.query({}, function(tabs) {
             for (var i = 0; i < tabs.length; i++) {
-                tabList.push({id: tabs[i].id, windowId: window.id, url: tabs[i].url, title: tabs[i].title.replace(/</g, "&lt;").replace(/>/g, "&gt;"), date: new Date()});
+                tabList.push({id: tabs[i].id, windowId: tabs[i].windowId, favicon: tabs[i].favIconUrl, url: tabs[i].url, title: tabs[i].title.replace(/</g, "&lt;").replace(/>/g, "&gt;"), date: new Date()});
             }
         });
     });
@@ -21,7 +21,7 @@ function getTabs() {
 
 chrome.tabs.onCreated.addListener(
     function(tab) {
-        tabList.push({id: tab.id, windowId: tab.windowId, url: tab.url, title: tab.title.replace(/</g, "&lt;").replace(/>/g, "&gt;"), date: new Date()});
+        tabList.push({id: tab.id, windowId: tab.windowId, favicon: tab.favIconUrl, url: tab.url, title: tab.title.replace(/</g, "&lt;").replace(/>/g, "&gt;"), date: new Date()});
     }
 );
 
@@ -29,9 +29,10 @@ chrome.tabs.onUpdated.addListener(
     function(tabId, changeInfo, tab) {
         for (var i = 0; i < tabList.length; i++) {
             if (tabList[i].id === tabId) {
-                if (changeInfo.status != null || changeInfo.url != null || changeInfo.title != null) {
+                if (changeInfo.status != null || changeInfo.url != null || changeInfo.title != null || changeInfo.favIconUrl != null) {
                     tabList[i].url = tab.url;
                     tabList[i].title = tab.title.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    tabList[i].favicon = tab.favIconUrl;
                     tabList[i].date = new Date();
                     tabList.push(tabList[i]);
                     tabList.splice(i, 1);
