@@ -97,6 +97,7 @@ $(document).ready(function() {
     // Find phrase
     $('#find').click(function() {
         $('#view-all').hide();
+        $('#view-search').empty();
         $('#view-search').append('<span>Results: ' + $('#search').val() + '</span>');
         $('#view-search').append("<table id='search-result'><tr><th>windowId</th><th>Title</th><th class='date'>Last Accessed</th></tr></table>");
         for (var i = 0; i < tabList.length; i++) {
